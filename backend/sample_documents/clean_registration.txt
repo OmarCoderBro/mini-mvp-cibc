@@ -1,0 +1,16 @@
+CERTIFICATE OF BUSINESS REGISTRATION
+(SYNTHETIC DEMO DOCUMENT — NOT A REAL FILING)
+
+This certifies that the business named below has been registered under
+fictional Demo Province business registry rules for the purposes of this
+software demonstration only.
+
+Legal Business Name: Acme Widgets Holdings Ltd.
+Registration Number: BC-1029384
+Registered Address: 100 Fictional Way, Toronto, ON, M4B 1B3
+Issue Date: 2024-01-15
+Expiration Date: 2027-01-15
+
+This document contains no real business, government, or personal
+information and must not be treated as evidence of any actual legal
+entity.
