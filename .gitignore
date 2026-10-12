@@ -1,6 +1,7 @@
 # Environment
 .env
 .env.local
+.env.example
 
 # Python
 __pycache__/
@@ -16,3 +17,8 @@ dist/
 
 # OS
 .DS_Store
+
+# personal prep docs
+CIBC-MVP-One-Pager.pdf
+CLAUDE.md
+frontend/.env.example
