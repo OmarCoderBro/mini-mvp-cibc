@@ -1,22 +1,21 @@
 # Client Onboarding Document Review MVP - Omar Shatat
 
-Synthetic onboarding document review using React → FastAPI → Claude (field extraction) → Python rules → PostgreSQL.
+(using synthetic data) onboarding document review using React → FastAPI → Claude → Python rules → PostgreSQL.
 
-An LLM extracts five fields from a document, but deterministic Python rules, not the AI, decide whether it is "Ready for reviewer" or "Needs attention". A human reviewer makes the real decision.
+the LLM extracts five fields from a document, but  Python rules, not the AI, decide whether it is "Ready for reviewer" or "Needs attention". A human reviewer makes the real decision, which is most important
 
-Independent portfolio project, not affiliated with CIBC. All documents are fictional.
 
-## Architecture
+## Quick Architecture sanity check
 
-```
+
 React page --> FastAPI --> Claude (extract 5 fields as JSON) --> Python rules --> PostgreSQL
-```
+
 
 - **FastAPI** (`POST /reviews`, `GET /reviews`, `GET /health`) runs extraction, validation, and saving.
 - **Claude (Anthropic API)** pulls the business name, registration number, address, issue date, and expiration date from the text. Its output is checked against a strict schema before use.
-- **Python rules** flag missing, malformed, expired, and inconsistent-date fields.
+- **Python rules** flags missing, malformed, expired, and inconsistent-date fields. This means that we aren't just validating what AI returns, we use deterministic rules to reject certain fields
 - **PostgreSQL** stores each review and powers the history table.
-- **React + TypeScript (Vite)** is a single page: pick a sample document, review it, see results.
+- **React** is a single page: pick a sample document, review it, see results almost instantly .
 
 ## Run locally
 
@@ -45,11 +44,11 @@ npm install
 npm run dev
 ```
 
-Open the URL Vite prints (normally http://localhost:5173). Check the API at http://localhost:8000/health.
+then, you can open the URL React gives after running the frontend (usually http://localhost:5173)
 
 **Stop:** Ctrl+C both terminals, then `docker compose down`.
 
-## Troubleshooting Tips for this MVP
+## quick troubleshooting tips for this MVP
 - **If Port 8000 is still in use:**
 `kill $(lsof -nP -tiTCP:8000 -sTCP:LISTEN)`.
 - **To check if its running on there:**
